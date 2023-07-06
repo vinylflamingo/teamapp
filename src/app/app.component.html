@@ -17,8 +17,16 @@
     </div>
 
     <div class="input-container">
-      <input type="text" placeholder="# of teams" />
-      <button>Generate</button>
+      <input 
+        #teamsInput
+        type="number" 
+        min="0"
+        placeholder="# of teams" 
+        (input)="onNumbersOfTeamsInput(teamsInput.value)"
+        [value]="numberOfTeams"
+      />
+      <button
+        (click)="generateTeams()">Generate</button>
     </div>
 
     <div #error *ngIf="errorMessage">
