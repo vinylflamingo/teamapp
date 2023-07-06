@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { isNullOrEmpty } from 'src/utilities/string';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'teamapp';
+  title: string = 'Build some teams!';
+  newMemberName: string = "";
+  members: string[] = [];
+  errorMessage: string = "";
+
+  addMember() {
+    if (!isNullOrEmpty(this.newMemberName)) {
+      console.log("adding member: " + this.newMemberName);
+      this.members.push(this.newMemberName);
+      this.newMemberName = "";
+      console.log(this.members);
+    }
+    else {
+      this.errorMessage = "Please enter a name";
+    }
+  }
+
+  onInput(member: string) {
+    this.newMemberName = member;
+  }
+
 }
