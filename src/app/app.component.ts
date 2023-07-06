@@ -18,6 +18,7 @@ export class AppComponent {
       this.members.push(this.newMemberName);
       this.newMemberName = "";
       console.log(this.members);
+      this.errorMessage = "";
     }
     else {
       this.errorMessage = "Please enter a name";
